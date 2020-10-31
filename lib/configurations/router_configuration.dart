@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:thomas_clark/src/route_paths/route_path.dart';
+import 'package:thomas_clark/route_paths/route_path.dart';
 
 class RouterConfiguration {
   final RoutePath path;

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
-import 'package:thomas_clark/src/extensions/media_query_data_extensions.dart';
-import 'package:thomas_clark/src/pages/achievements_page.dart';
-import 'package:thomas_clark/src/pages/education_page.dart';
-import 'package:thomas_clark/src/pages/experience_page.dart';
-import 'package:thomas_clark/src/pages/home_page.dart';
-import 'package:thomas_clark/src/pages/skills_page.dart';
-import 'package:thomas_clark/src/pages/volunteering_page.dart';
+import 'package:thomas_clark/extensions/media_query_data_extensions.dart';
+import 'package:thomas_clark/pages/achievements_page.dart';
+import 'package:thomas_clark/pages/education_page.dart';
+import 'package:thomas_clark/pages/experience_page.dart';
+import 'package:thomas_clark/pages/home_page.dart';
+import 'package:thomas_clark/pages/skills_page.dart';
+import 'package:thomas_clark/pages/volunteering_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thomas_clark/src/widgets/app_card.dart';
+import 'package:thomas_clark/widgets/app_card.dart';
 
 class EducationPage extends StatelessWidget {
   const EducationPage({

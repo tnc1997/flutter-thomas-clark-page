@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:thomas_clark/src/configurations/router_configuration.dart';
-import 'package:thomas_clark/src/pages/main_page.dart';
-import 'package:thomas_clark/src/states/router_state.dart';
+import 'package:thomas_clark/configurations/router_configuration.dart';
+import 'package:thomas_clark/pages/main_page.dart';
+import 'package:thomas_clark/states/router_state.dart';
 
 class AppRouterDelegate extends RouterDelegate<RouterConfiguration>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<RouterConfiguration> {
