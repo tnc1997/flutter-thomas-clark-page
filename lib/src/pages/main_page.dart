@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 import 'package:thomas_clark/src/extensions/media_query_data_extensions.dart';
 import 'package:thomas_clark/src/pages/home_page.dart';
+import 'package:thomas_clark/src/pages/skills_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({
@@ -19,6 +20,14 @@ class _MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
+    final body = IndexedStack(
+      index: _index,
+      children: [
+        const HomePage(),
+        const SkillsPage(),
+      ],
+    );
+
     return Scaffold(
       body: MediaQuery.of(context).isMedium || MediaQuery.of(context).isLarge
           ? Row(
@@ -75,13 +84,13 @@ class _MainPageState extends State<MainPage> {
                       constraints: BoxConstraints(
                         maxWidth: 1000,
                       ),
-                      child: const HomePage(),
+                      child: body,
                     ),
                   ),
                 ),
               ],
             )
-          : const HomePage(),
+          : body,
       bottomNavigationBar: MediaQuery.of(context).isSmall
           ? BottomNavigationBar(
               items: [
