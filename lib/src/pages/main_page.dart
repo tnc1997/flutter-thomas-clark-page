@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 import 'package:thomas_clark/src/extensions/media_query_data_extensions.dart';
+import 'package:thomas_clark/src/pages/experience_page.dart';
 import 'package:thomas_clark/src/pages/home_page.dart';
 import 'package:thomas_clark/src/pages/skills_page.dart';
 
@@ -25,6 +26,7 @@ class _MainPageState extends State<MainPage> {
       children: [
         const HomePage(),
         const SkillsPage(),
+        const ExperiencePage(),
       ],
     );
 
