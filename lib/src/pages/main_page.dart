@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
 import 'package:thomas_clark/src/extensions/media_query_data_extensions.dart';
+import 'package:thomas_clark/src/pages/achievements_page.dart';
 import 'package:thomas_clark/src/pages/education_page.dart';
 import 'package:thomas_clark/src/pages/experience_page.dart';
 import 'package:thomas_clark/src/pages/home_page.dart';
@@ -31,6 +32,7 @@ class _MainPageState extends State<MainPage> {
         const ExperiencePage(),
         const EducationPage(),
         const VolunteeringPage(),
+        const AchievementsPage(),
       ],
     );
 
@@ -47,8 +49,8 @@ class _MainPageState extends State<MainPage> {
                       label: Text('Home'),
                     ),
                     NavigationRailDestination(
-                      icon: Icon(Mdi.trophyOutline),
-                      selectedIcon: Icon(Mdi.trophy),
+                      icon: Icon(Mdi.lightbulbOutline),
+                      selectedIcon: Icon(Mdi.lightbulb),
                       label: Text('Skills'),
                     ),
                     NavigationRailDestination(
@@ -67,9 +69,9 @@ class _MainPageState extends State<MainPage> {
                       label: Text('Volunteering'),
                     ),
                     NavigationRailDestination(
-                      icon: Icon(Mdi.certificateOutline),
-                      selectedIcon: Icon(Mdi.certificate),
-                      label: Text('Awards'),
+                      icon: Icon(Mdi.trophyOutline),
+                      selectedIcon: Icon(Mdi.trophy),
+                      label: Text('Achievements'),
                     ),
                   ],
                   selectedIndex: _index,
@@ -107,9 +109,9 @@ class _MainPageState extends State<MainPage> {
                   backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Mdi.trophyOutline),
+                  icon: Icon(Mdi.lightbulbOutline),
                   label: 'Skills',
-                  activeIcon: Icon(Mdi.trophy),
+                  activeIcon: Icon(Mdi.lightbulb),
                   backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
@@ -131,9 +133,9 @@ class _MainPageState extends State<MainPage> {
                   backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Mdi.certificateOutline),
-                  label: 'Awards',
-                  activeIcon: Icon(Mdi.certificate),
+                  icon: Icon(Mdi.trophyOutline),
+                  label: 'Achievements',
+                  activeIcon: Icon(Mdi.trophy),
                   backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
               ],
