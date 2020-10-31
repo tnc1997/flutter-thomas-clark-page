@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:thomas_clark/src/configurations/router_configuration.dart';
-import 'package:thomas_clark/src/pages/home_page.dart';
+import 'package:thomas_clark/src/pages/main_page.dart';
 import 'package:thomas_clark/src/states/router_state.dart';
 
 class AppRouterDelegate extends RouterDelegate<RouterConfiguration>
@@ -22,10 +22,8 @@ class AppRouterDelegate extends RouterDelegate<RouterConfiguration>
 
     final pages = [
       const MaterialPage<void>(
-        child: const HomePage(
-          title: 'Flutter Demo Home Page',
-        ),
-        key: const Key('home_page'),
+        child: const MainPage(),
+        key: const Key('main_page'),
       ),
     ];
 

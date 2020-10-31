@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:thomas_clark/src/configurations/router_configuration.dart';
-import 'package:thomas_clark/src/route_paths/home_route_path.dart';
+import 'package:thomas_clark/src/route_paths/main_route_path.dart';
 
 class AppRouteInformationParser
     extends RouteInformationParser<RouterConfiguration> {
@@ -13,7 +13,7 @@ class AppRouteInformationParser
 
     return SynchronousFuture(
       RouterConfiguration(
-        path: HomeRoutePath(),
+        path: MainRoutePath(),
         state: routeInformation.state,
       ),
     );
@@ -25,7 +25,7 @@ class AppRouteInformationParser
   ) {
     final path = configuration.path;
 
-    if (path is HomeRoutePath) {
+    if (path is MainRoutePath) {
       return RouteInformation(
         location: '/',
         state: configuration.state,
