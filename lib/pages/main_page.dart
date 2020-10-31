@@ -7,6 +7,7 @@ import 'package:thomas_clark/pages/experience_page.dart';
 import 'package:thomas_clark/pages/home_page.dart';
 import 'package:thomas_clark/pages/skills_page.dart';
 import 'package:thomas_clark/pages/volunteering_page.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({
@@ -99,6 +100,15 @@ class _MainPageState extends State<MainPage> {
               ],
             )
           : body,
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Mdi.email),
+        tooltip: 'Email',
+        onPressed: () async {
+          if (await canLaunch('mailto:tnc1997@virginmedia.com')) {
+            await launch('mailto:tnc1997@virginmedia.com');
+          }
+        },
+      ),
       bottomNavigationBar: MediaQuery.of(context).isSmall
           ? Builder(
               builder: (context) {
