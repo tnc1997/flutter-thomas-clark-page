@@ -69,15 +69,19 @@ class _MainPageState extends State<MainPage> {
                   width: 1,
                 ),
                 Expanded(
-                  child: HomePage(
-                    title: 'Flutter Demo Home Page',
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        maxWidth: 1000,
+                      ),
+                      child: const HomePage(),
+                    ),
                   ),
                 ),
               ],
             )
-          : HomePage(
-              title: 'Flutter Demo Home Page',
-            ),
+          : const HomePage(),
       bottomNavigationBar: MediaQuery.of(context).isSmall
           ? BottomNavigationBar(
               items: [
