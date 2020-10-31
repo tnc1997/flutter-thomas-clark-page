@@ -100,51 +100,64 @@ class _MainPageState extends State<MainPage> {
             )
           : body,
       bottomNavigationBar: MediaQuery.of(context).isSmall
-          ? BottomNavigationBar(
-              items: [
-                BottomNavigationBarItem(
-                  icon: Icon(Mdi.homeOutline),
-                  label: 'Home',
-                  activeIcon: Icon(Mdi.home),
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Mdi.lightbulbOutline),
-                  label: 'Skills',
-                  activeIcon: Icon(Mdi.lightbulb),
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Mdi.briefcaseOutline),
-                  label: 'Experience',
-                  activeIcon: Icon(Mdi.briefcase),
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Mdi.schoolOutline),
-                  label: 'Education',
-                  activeIcon: Icon(Mdi.school),
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Mdi.heartOutline),
-                  label: 'Volunteering',
-                  activeIcon: Icon(Mdi.heart),
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Mdi.trophyOutline),
-                  label: 'Achievements',
-                  activeIcon: Icon(Mdi.trophy),
-                  backgroundColor: Theme.of(context).colorScheme.primary,
-                ),
-              ],
-              onTap: (value) {
-                setState(() {
-                  _index = value;
-                });
+          ? Builder(
+              builder: (context) {
+                final colorScheme = Theme.of(context).colorScheme;
+                final isDark = colorScheme.brightness == Brightness.dark;
+                final backgroundColor =
+                    isDark ? colorScheme.surface : colorScheme.primary;
+                final itemColor =
+                    isDark ? colorScheme.onSurface : colorScheme.onPrimary;
+
+                return BottomNavigationBar(
+                  items: [
+                    BottomNavigationBarItem(
+                      icon: Icon(Mdi.homeOutline),
+                      label: 'Home',
+                      activeIcon: Icon(Mdi.home),
+                      backgroundColor: backgroundColor,
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Mdi.lightbulbOutline),
+                      label: 'Skills',
+                      activeIcon: Icon(Mdi.lightbulb),
+                      backgroundColor: backgroundColor,
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Mdi.briefcaseOutline),
+                      label: 'Experience',
+                      activeIcon: Icon(Mdi.briefcase),
+                      backgroundColor: backgroundColor,
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Mdi.schoolOutline),
+                      label: 'Education',
+                      activeIcon: Icon(Mdi.school),
+                      backgroundColor: backgroundColor,
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Mdi.heartOutline),
+                      label: 'Volunteering',
+                      activeIcon: Icon(Mdi.heart),
+                      backgroundColor: backgroundColor,
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Mdi.trophyOutline),
+                      label: 'Achievements',
+                      activeIcon: Icon(Mdi.trophy),
+                      backgroundColor: backgroundColor,
+                    ),
+                  ],
+                  onTap: (value) {
+                    setState(() {
+                      _index = value;
+                    });
+                  },
+                  currentIndex: _index,
+                  selectedItemColor: itemColor,
+                  unselectedItemColor: itemColor,
+                );
               },
-              currentIndex: _index,
             )
           : null,
     );
