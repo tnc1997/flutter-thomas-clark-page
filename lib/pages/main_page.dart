@@ -5,7 +5,6 @@ import 'package:thomas_clark/pages/achievements_page.dart';
 import 'package:thomas_clark/pages/education_page.dart';
 import 'package:thomas_clark/pages/experience_page.dart';
 import 'package:thomas_clark/pages/home_page.dart';
-import 'package:thomas_clark/pages/skills_page.dart';
 import 'package:thomas_clark/pages/volunteering_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -29,7 +28,6 @@ class _MainPageState extends State<MainPage> {
       index: _index,
       children: [
         const HomePage(),
-        const SkillsPage(),
         const ExperiencePage(),
         const EducationPage(),
         const VolunteeringPage(),
@@ -48,11 +46,6 @@ class _MainPageState extends State<MainPage> {
                       icon: Icon(Mdi.homeOutline),
                       selectedIcon: Icon(Mdi.home),
                       label: Text('Home'),
-                    ),
-                    NavigationRailDestination(
-                      icon: Icon(Mdi.lightbulbOutline),
-                      selectedIcon: Icon(Mdi.lightbulb),
-                      label: Text('Skills'),
                     ),
                     NavigationRailDestination(
                       icon: Icon(Mdi.briefcaseOutline),
@@ -125,12 +118,6 @@ class _MainPageState extends State<MainPage> {
                       icon: Icon(Mdi.homeOutline),
                       label: 'Home',
                       activeIcon: Icon(Mdi.home),
-                      backgroundColor: backgroundColor,
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Mdi.lightbulbOutline),
-                      label: 'Skills',
-                      activeIcon: Icon(Mdi.lightbulb),
                       backgroundColor: backgroundColor,
                     ),
                     BottomNavigationBarItem(

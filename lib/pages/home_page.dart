@@ -20,6 +20,11 @@ class HomePage extends StatelessWidget {
             content:
                 'My name is Thomas Clark and I am a developer specialising in a range of frontend and backend technologies.',
           ),
+          AppCard(
+            title: 'About',
+            content:
+                'Having graduated from the University of Gloucestershire with a first class degree with honours in computing, I am currently working at apetito UK as a developer. I enjoy both web app and mobile app development and I have created a number of professional websites for clients in the past. I have strong practical experience using a variety of languages and frameworks including .NET, Angular and Flutter.',
+          ),
         ],
       ),
     );
