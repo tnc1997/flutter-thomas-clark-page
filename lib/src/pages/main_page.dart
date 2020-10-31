@@ -109,9 +109,9 @@ class _MainPageState extends State<MainPage> {
                   backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Mdi.trophyOutline),
+                  icon: Icon(Mdi.lightbulbOutline),
                   label: 'Skills',
-                  activeIcon: Icon(Mdi.trophy),
+                  activeIcon: Icon(Mdi.lightbulb),
                   backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
@@ -133,9 +133,9 @@ class _MainPageState extends State<MainPage> {
                   backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Mdi.certificateOutline),
-                  label: 'Awards',
-                  activeIcon: Icon(Mdi.certificate),
+                  icon: Icon(Mdi.trophyOutline),
+                  label: 'Achievements',
+                  activeIcon: Icon(Mdi.trophy),
                   backgroundColor: Theme.of(context).colorScheme.primary,
                 ),
               ],
