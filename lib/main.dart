@@ -32,6 +32,10 @@ class _AppState extends State<App> {
           secondaryVariant: Colors.red[700],
           surface: Colors.white,
           background: Colors.grey[50],
+          onPrimary: Colors.black,
+          onSecondary: Colors.black,
+          onSurface: Colors.black,
+          onBackground: Colors.black,
         ),
       ),
       darkTheme: ThemeData.from(
@@ -42,6 +46,10 @@ class _AppState extends State<App> {
           secondaryVariant: Colors.red[700],
           surface: Colors.grey[850],
           background: Colors.grey[900],
+          onPrimary: Colors.black,
+          onSecondary: Colors.black,
+          onSurface: Colors.white,
+          onBackground: Colors.white,
         ),
       ),
     );
