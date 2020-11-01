@@ -1,6 +1,6 @@
 # Thomas Clark
 
-A new Flutter project.
+My name is Thomas Clark and I am a developer specialising in a range of frontend and backend technologies.
 
 ## Getting Started
 
