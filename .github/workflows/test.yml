@@ -18,7 +18,7 @@ jobs:
       - name: Test
         run: |
           ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter test
+          ~/Tools/flutter/bin/flutter test --enable-experiment=non-nullable --no-sound-null-safety
   build_apk:
     name: Build apk
     runs-on: ubuntu-latest
