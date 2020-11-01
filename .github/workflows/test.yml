@@ -35,7 +35,7 @@ jobs:
       - name: Build apk
         run: |
           ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter build apk
+          ~/Tools/flutter/bin/flutter build apk --enable-experiment=non-nullable --no-sound-null-safety
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -57,7 +57,7 @@ jobs:
       - name: Build appbundle
         run: |
           ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter build appbundle
+          ~/Tools/flutter/bin/flutter build appbundle --enable-experiment=non-nullable --no-sound-null-safety
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -80,7 +80,7 @@ jobs:
       - name: Build web
         run: |
           ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter build web
+          ~/Tools/flutter/bin/flutter build web --enable-experiment=non-nullable --no-sound-null-safety
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -102,7 +102,7 @@ jobs:
       - name: Build windows
         run: |
           ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter build windows
+          ~/Tools/flutter/bin/flutter build windows --enable-experiment=non-nullable --no-sound-null-safety
         shell: bash
       - name: Upload artifact
         uses: actions/upload-artifact@v2

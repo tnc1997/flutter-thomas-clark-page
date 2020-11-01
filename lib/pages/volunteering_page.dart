@@ -3,7 +3,7 @@ import 'package:thomas_clark/widgets/app_card.dart';
 
 class VolunteeringPage extends StatelessWidget {
   const VolunteeringPage({
-    Key key,
+    Key? key,
   }) : super(
           key: key,
         );

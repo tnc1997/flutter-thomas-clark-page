@@ -9,8 +9,6 @@ class AppRouteInformationParser
   Future<RouterConfiguration> parseRouteInformation(
     RouteInformation routeInformation,
   ) async {
-    final uri = Uri.parse(routeInformation.location);
-
     return SynchronousFuture(
       RouterConfiguration(
         path: MainRoutePath(),
@@ -20,7 +18,7 @@ class AppRouteInformationParser
   }
 
   @override
-  RouteInformation restoreRouteInformation(
+  RouteInformation? restoreRouteInformation(
     RouterConfiguration configuration,
   ) {
     final path = configuration.path;

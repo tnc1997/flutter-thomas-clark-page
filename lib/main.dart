@@ -16,28 +16,28 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   final _routeInformationParser = AppRouteInformationParser();
 
-  AppRouterDelegate _routerDelegate;
-  RouterStateData _routerStateData;
-  ThemeStateData _themeStateData;
+  AppRouterDelegate? _routerDelegate;
+  RouterStateData? _routerStateData;
+  ThemeStateData? _themeStateData;
 
   @override
   Widget build(BuildContext context) {
     return ThemeState(
-      notifier: _themeStateData,
+      notifier: _themeStateData!,
       child: Builder(
         builder: (context) {
           return MaterialApp.router(
             routeInformationParser: _routeInformationParser,
-            routerDelegate: _routerDelegate,
+            routerDelegate: _routerDelegate!,
             title: 'Thomas Clark',
             theme: ThemeData.from(
               colorScheme: ColorScheme.light(
                 primary: Colors.red,
-                primaryVariant: Colors.red[700],
+                primaryVariant: Colors.red[700]!,
                 secondary: Colors.red,
-                secondaryVariant: Colors.red[700],
+                secondaryVariant: Colors.red[700]!,
                 surface: Colors.white,
-                background: Colors.grey[50],
+                background: Colors.grey[50]!,
                 onPrimary: Colors.black,
                 onSecondary: Colors.black,
                 onSurface: Colors.black,
@@ -46,19 +46,19 @@ class _AppState extends State<App> {
             ),
             darkTheme: ThemeData.from(
               colorScheme: ColorScheme.dark(
-                primary: Colors.red[200],
-                primaryVariant: Colors.red[700],
-                secondary: Colors.red[200],
-                secondaryVariant: Colors.red[700],
-                surface: Colors.grey[850],
-                background: Colors.grey[900],
+                primary: Colors.red[200]!,
+                primaryVariant: Colors.red[700]!,
+                secondary: Colors.red[200]!,
+                secondaryVariant: Colors.red[700]!,
+                surface: Colors.grey[850]!,
+                background: Colors.grey[900]!,
                 onPrimary: Colors.black,
                 onSecondary: Colors.black,
                 onSurface: Colors.white,
                 onBackground: Colors.white,
               ),
             ),
-            themeMode: ThemeState.of(context).themeMode,
+            themeMode: ThemeState.of(context)?.themeMode,
           );
         },
       ),
@@ -67,9 +67,9 @@ class _AppState extends State<App> {
 
   @override
   void dispose() {
-    _routerDelegate.dispose();
-    _routerStateData.dispose();
-    _themeStateData.dispose();
+    _routerDelegate?.dispose();
+    _routerStateData?.dispose();
+    _themeStateData?.dispose();
     super.dispose();
   }
 
@@ -78,10 +78,8 @@ class _AppState extends State<App> {
     super.initState();
     _routerStateData = RouterStateData();
     _routerDelegate = AppRouterDelegate(
-      notifier: _routerStateData,
+      notifier: _routerStateData!,
     );
-    _themeStateData = ThemeStateData(
-      themeMode: ThemeMode.system,
-    );
+    _themeStateData = ThemeStateData();
   }
 }
