@@ -18,12 +18,14 @@ class ExperiencePage extends StatelessWidget {
           AppCard(
             title: 'Developer at apetito UK',
             subtitle: 'August 2019 - To Date',
-            content: 'Coming Soon!',
+            content:
+                'After graduating from University, I returned to apetito UK as part of their graduate programme to continue working as a developer where I orchestrated their migration to microservices.',
           ),
           AppCard(
             title: 'Developer at apetito UK',
             subtitle: 'June 2017 - July 2018',
-            content: 'Coming Soon!',
+            content:
+                'During my time at University, I completed a placement year at apetito UK where I spent the majority of the year working as a developer on web apps and mobile apps using Angular and Ionic.',
           ),
           AppCard(
             title: 'Garden Centre Assistant at Wyevale Garden Centres',
