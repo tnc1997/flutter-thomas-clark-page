@@ -1,0 +1,111 @@
+name: Test
+on:
+  pull_request:
+    branches:
+      - main
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install flutter
+        run: |
+          mkdir ~/Tools && cd $_
+          git clone https://github.com/flutter/flutter.git
+          ~/Tools/flutter/bin/flutter doctor
+      - name: Test
+        run: |
+          ~/Tools/flutter/bin/flutter packages get
+          ~/Tools/flutter/bin/flutter test
+  build_apk:
+    name: Build apk
+    needs:
+      - create_release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install flutter
+        run: |
+          mkdir ~/Tools && cd $_
+          git clone https://github.com/flutter/flutter.git
+          ~/Tools/flutter/bin/flutter doctor
+      - name: Build apk
+        run: |
+          ~/Tools/flutter/bin/flutter packages get
+          ~/Tools/flutter/bin/flutter build apk
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+  build_appbundle:
+    name: Build appbundle
+    needs:
+      - create_release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install flutter
+        run: |
+          mkdir ~/Tools && cd $_
+          git clone https://github.com/flutter/flutter.git
+          ~/Tools/flutter/bin/flutter doctor
+      - name: Build appbundle
+        run: |
+          ~/Tools/flutter/bin/flutter packages get
+          ~/Tools/flutter/bin/flutter build appbundle
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: appbundle
+          path: build/app/outputs/bundle/release/app-release.aab
+  build_web:
+    name: Build web
+    needs:
+      - create_release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install flutter
+        run: |
+          mkdir ~/Tools && cd $_
+          git clone https://github.com/flutter/flutter.git
+          ~/Tools/flutter/bin/flutter config --enable-web
+          ~/Tools/flutter/bin/flutter doctor
+      - name: Build web
+        run: |
+          ~/Tools/flutter/bin/flutter packages get
+          ~/Tools/flutter/bin/flutter build web
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: web
+          path: build/web
+  build_windows:
+    name: Build windows
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Install flutter
+        run: |
+          mkdir ~/Tools && cd $_
+          git clone https://github.com/flutter/flutter.git
+          ~/Tools/flutter/bin/flutter config --enable-windows-desktop
+          ~/Tools/flutter/bin/flutter doctor
+        shell: bash
+      - name: Build windows
+        run: |
+          ~/Tools/flutter/bin/flutter packages get
+          ~/Tools/flutter/bin/flutter build windows
+        shell: bash
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: windows
+          path: build\windows\runner\Release
