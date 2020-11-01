@@ -3,7 +3,7 @@ import 'package:thomas_clark/states/theme_state.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({
-    Key key,
+    Key? key,
   }) : super(
           key: key,
         );
@@ -30,9 +30,9 @@ class SettingsPage extends StatelessWidget {
                 child: Text('Dark'),
               ),
             ],
-            value: ThemeState.of(context).themeMode,
+            value: ThemeState.of(context)?.themeMode,
             onChanged: (value) {
-              ThemeState.of(context).themeMode = value;
+              ThemeState.of(context)?.themeMode = value!;
             },
             decoration: InputDecoration(
               labelText: 'Theme',

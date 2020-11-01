@@ -3,7 +3,7 @@ import 'package:thomas_clark/widgets/app_card.dart';
 
 class AchievementsPage extends StatelessWidget {
   const AchievementsPage({
-    Key key,
+    Key? key,
   }) : super(
           key: key,
         );

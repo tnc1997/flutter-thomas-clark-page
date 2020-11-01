@@ -11,19 +11,17 @@ class AppRouterDelegate extends RouterDelegate<RouterConfiguration>
   final RouterStateData notifier;
 
   AppRouterDelegate({
-    @required this.notifier,
+    required this.notifier,
   }) {
     notifier.addListener(notifyListeners);
   }
 
   @override
   Widget build(BuildContext context) {
-    final path = notifier.path;
-
     final pages = [
       const MaterialPage<void>(
         child: const MainPage(),
-        key: const Key('main_page'),
+        key: const ValueKey('main_page'),
       ),
     ];
 

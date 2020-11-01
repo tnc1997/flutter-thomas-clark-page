@@ -3,7 +3,7 @@ import 'package:thomas_clark/widgets/app_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({
-    Key key,
+    Key? key,
   }) : super(
           key: key,
         );

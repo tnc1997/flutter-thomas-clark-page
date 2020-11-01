@@ -10,7 +10,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({
-    Key key,
+    Key? key,
   }) : super(
           key: key,
         );
@@ -20,7 +20,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _index;
+  int? _index;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +68,7 @@ class _MainPageState extends State<MainPage> {
                       label: Text('Achievements'),
                     ),
                   ],
-                  selectedIndex: _index,
+                  selectedIndex: _index!,
                   onDestinationSelected: (value) {
                     setState(() {
                       _index = value;
@@ -105,12 +105,12 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: MediaQuery.of(context).isSmall
           ? Builder(
               builder: (context) {
-                final colorScheme = Theme.of(context).colorScheme;
-                final isDark = colorScheme.brightness == Brightness.dark;
+                final colorScheme = Theme.of(context)?.colorScheme;
+                final isDark = colorScheme?.brightness == Brightness.dark;
                 final backgroundColor =
-                    isDark ? colorScheme.surface : colorScheme.primary;
+                    isDark ? colorScheme?.surface : colorScheme?.primary;
                 final itemColor =
-                    isDark ? colorScheme.onSurface : colorScheme.onPrimary;
+                    isDark ? colorScheme?.onSurface : colorScheme?.onPrimary;
 
                 return BottomNavigationBar(
                   items: [
@@ -150,7 +150,7 @@ class _MainPageState extends State<MainPage> {
                       _index = value;
                     });
                   },
-                  currentIndex: _index,
+                  currentIndex: _index!,
                   selectedItemColor: itemColor,
                   unselectedItemColor: itemColor,
                 );

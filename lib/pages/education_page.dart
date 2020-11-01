@@ -3,7 +3,7 @@ import 'package:thomas_clark/widgets/app_card.dart';
 
 class EducationPage extends StatelessWidget {
   const EducationPage({
-    Key key,
+    Key? key,
   }) : super(
           key: key,
         );
