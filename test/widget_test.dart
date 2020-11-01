@@ -7,23 +7,101 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:thomas_clark/main.dart';
+import 'package:mdi/mdi.dart';
+import 'package:thomas_clark/pages/main_page.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(App());
+  group('MainPage', () {
+    testWidgets(
+      'Displays the home page as the initial destination',
+      (tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            home: MainPage(),
+          ),
+        );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+        expect(
+          find.text('Welcome'),
+          findsOneWidget,
+        );
+      },
+    );
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    testWidgets(
+      'Navigates to the achievements page when the achievements destination is selected',
+      (tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            home: MainPage(),
+          ),
+        );
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+        await tester.tap(find.byIcon(Mdi.trophyOutline));
+        await tester.pump();
+
+        expect(
+          find.text('Gloucestershire Employability Award'),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'Navigates to the education page when the education destination is selected',
+      (tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            home: MainPage(),
+          ),
+        );
+
+        await tester.tap(find.byIcon(Mdi.schoolOutline));
+        await tester.pump();
+
+        expect(
+          find.text('GCSE at The Grange School'),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'Navigates to the experience page when the experience destination is selected',
+      (tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            home: MainPage(),
+          ),
+        );
+
+        await tester.tap(find.byIcon(Mdi.briefcaseOutline));
+        await tester.pump();
+
+        expect(
+          find.text('Garden Centre Assistant at Wyevale Garden Centres'),
+          findsOneWidget,
+        );
+      },
+    );
+
+    testWidgets(
+      'Navigates to the volunteering page when the volunteering destination is selected',
+      (tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            home: MainPage(),
+          ),
+        );
+
+        await tester.tap(find.byIcon(Mdi.heartOutline));
+        await tester.pump();
+
+        expect(
+          find.text('Boys\' Brigade'),
+          findsOneWidget,
+        );
+      },
+    );
   });
 }
