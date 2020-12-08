@@ -32,7 +32,7 @@ class AppCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 child: Text(
                   title,
-                  style: Theme.of(context)?.textTheme.headline6,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               ),
             if (subtitle != null)
@@ -40,7 +40,7 @@ class AppCard extends StatelessWidget {
                 padding: const EdgeInsets.all(8),
                 child: Text(
                   subtitle,
-                  style: Theme.of(context)?.textTheme.subtitle1,
+                  style: Theme.of(context).textTheme.subtitle1,
                 ),
               ),
             if (content != null)

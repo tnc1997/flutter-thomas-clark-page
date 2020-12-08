@@ -15,20 +15,20 @@ class App extends StatefulWidget {
 
 class _AppState extends State<App> {
   final _routeInformationParser = AppRouteInformationParser();
+  final _routerStateData = RouterStateData();
+  final _themeStateData = ThemeStateData();
 
-  AppRouterDelegate? _routerDelegate;
-  RouterStateData? _routerStateData;
-  ThemeStateData? _themeStateData;
+  late AppRouterDelegate _routerDelegate;
 
   @override
   Widget build(BuildContext context) {
     return ThemeState(
-      notifier: _themeStateData!,
+      notifier: _themeStateData,
       child: Builder(
         builder: (context) {
           return MaterialApp.router(
             routeInformationParser: _routeInformationParser,
-            routerDelegate: _routerDelegate!,
+            routerDelegate: _routerDelegate,
             title: 'Thomas Clark',
             theme: ThemeData.from(
               colorScheme: ColorScheme.light(
@@ -67,19 +67,17 @@ class _AppState extends State<App> {
 
   @override
   void dispose() {
-    _routerDelegate?.dispose();
-    _routerStateData?.dispose();
-    _themeStateData?.dispose();
+    _routerDelegate.dispose();
+    _routerStateData.dispose();
+    _themeStateData.dispose();
     super.dispose();
   }
 
   @override
   void initState() {
     super.initState();
-    _routerStateData = RouterStateData();
     _routerDelegate = AppRouterDelegate(
-      notifier: _routerStateData!,
+      notifier: _routerStateData,
     );
-    _themeStateData = ThemeStateData();
   }
 }
