@@ -19,8 +19,8 @@ jobs:
         run: |
           ~/Tools/flutter/bin/flutter packages get
           ~/Tools/flutter/bin/flutter test --enable-experiment=non-nullable --no-sound-null-safety
-  build_apk:
-    name: Build apk
+  build_android:
+    name: Build android
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -30,35 +30,15 @@ jobs:
           mkdir ~/Tools && cd $_
           git clone https://github.com/flutter/flutter.git
           ~/Tools/flutter/bin/flutter doctor
-      - name: Build apk
+      - name: Build android
         run: |
           ~/Tools/flutter/bin/flutter packages get
           ~/Tools/flutter/bin/flutter build apk --enable-experiment=non-nullable --no-sound-null-safety
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: apk
+          name: android
           path: build/app/outputs/flutter-apk/app-release.apk
-  build_appbundle:
-    name: Build appbundle
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Install flutter
-        run: |
-          mkdir ~/Tools && cd $_
-          git clone https://github.com/flutter/flutter.git
-          ~/Tools/flutter/bin/flutter doctor
-      - name: Build appbundle
-        run: |
-          ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter build appbundle --enable-experiment=non-nullable --no-sound-null-safety
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: appbundle
-          path: build/app/outputs/bundle/release/app-release.aab
   build_web:
     name: Build web
     runs-on: ubuntu-latest
