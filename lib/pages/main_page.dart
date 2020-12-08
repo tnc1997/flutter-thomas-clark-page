@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mdi/mdi.dart';
-import 'package:thomas_clark/extensions/media_query_data_extensions.dart';
-import 'package:thomas_clark/pages/achievements_page.dart';
-import 'package:thomas_clark/pages/education_page.dart';
-import 'package:thomas_clark/pages/experience_page.dart';
-import 'package:thomas_clark/pages/home_page.dart';
-import 'package:thomas_clark/pages/volunteering_page.dart';
+import 'package:thomas_clark/router_delegates/main_router_delegate.dart';
+import 'package:thomas_clark/states/router_state.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class MainPage extends StatefulWidget {
+class MainPage extends StatelessWidget {
   const MainPage({
     Key? key,
   }) : super(
@@ -16,153 +12,129 @@ class MainPage extends StatefulWidget {
         );
 
   @override
-  _MainPageState createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  int? _index;
-
-  @override
   Widget build(BuildContext context) {
-    final body = IndexedStack(
-      index: _index,
-      children: [
-        const HomePage(),
-        const ExperiencePage(),
-        const EducationPage(),
-        const VolunteeringPage(),
-        const AchievementsPage(),
-      ],
-    );
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        Widget? body;
+        Widget? bottomNavigationBar;
 
-    return Scaffold(
-      body: MediaQuery.of(context).isMedium || MediaQuery.of(context).isLarge
-          ? Row(
-              children: [
-                NavigationRail(
-                  extended: MediaQuery.of(context).isLarge,
-                  destinations: [
-                    NavigationRailDestination(
-                      icon: Icon(Mdi.homeOutline),
-                      selectedIcon: Icon(Mdi.home),
-                      label: Text('Home'),
+        body = Router(
+          routerDelegate: MainRouterDelegate(
+            routerStateData: RouterState.of(context)!,
+          ),
+          backButtonDispatcher: Router.of(context)
+              .backButtonDispatcher
+              ?.createChildBackButtonDispatcher()
+                ?..takePriority(),
+        );
+
+        if (constraints.maxWidth >= 768) {
+          body = Row(
+            children: [
+              NavigationRail(
+                extended: constraints.maxWidth >= 1024,
+                destinations: [
+                  NavigationRailDestination(
+                    icon: Icon(Mdi.homeOutline),
+                    selectedIcon: Icon(Mdi.home),
+                    label: Text('Home'),
+                  ),
+                  NavigationRailDestination(
+                    icon: Icon(Mdi.briefcaseOutline),
+                    selectedIcon: Icon(Mdi.briefcase),
+                    label: Text('Experience'),
+                  ),
+                  NavigationRailDestination(
+                    icon: Icon(Mdi.schoolOutline),
+                    selectedIcon: Icon(Mdi.school),
+                    label: Text('Education'),
+                  ),
+                  NavigationRailDestination(
+                    icon: Icon(Mdi.heartOutline),
+                    selectedIcon: Icon(Mdi.heart),
+                    label: Text('Volunteering'),
+                  ),
+                  NavigationRailDestination(
+                    icon: Icon(Mdi.trophyOutline),
+                    selectedIcon: Icon(Mdi.trophy),
+                    label: Text('Achievements'),
+                  ),
+                ],
+                selectedIndex: RouterState.of(context)!.selectedIndex,
+                onDestinationSelected: (value) {
+                  RouterState.of(context)!.selectedIndex = value;
+                },
+              ),
+              VerticalDivider(
+                width: 1,
+                thickness: 1,
+              ),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.topCenter,
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(
+                      maxWidth: 1000,
                     ),
-                    NavigationRailDestination(
-                      icon: Icon(Mdi.briefcaseOutline),
-                      selectedIcon: Icon(Mdi.briefcase),
-                      label: Text('Experience'),
-                    ),
-                    NavigationRailDestination(
-                      icon: Icon(Mdi.schoolOutline),
-                      selectedIcon: Icon(Mdi.school),
-                      label: Text('Education'),
-                    ),
-                    NavigationRailDestination(
-                      icon: Icon(Mdi.heartOutline),
-                      selectedIcon: Icon(Mdi.heart),
-                      label: Text('Volunteering'),
-                    ),
-                    NavigationRailDestination(
-                      icon: Icon(Mdi.trophyOutline),
-                      selectedIcon: Icon(Mdi.trophy),
-                      label: Text('Achievements'),
-                    ),
-                  ],
-                  selectedIndex: _index!,
-                  onDestinationSelected: (value) {
-                    setState(() {
-                      _index = value;
-                    });
-                  },
-                ),
-                VerticalDivider(
-                  thickness: 1,
-                  width: 1,
-                ),
-                Expanded(
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: ConstrainedBox(
-                      constraints: BoxConstraints(
-                        maxWidth: 1000,
-                      ),
-                      child: body,
-                    ),
+                    child: body,
                   ),
                 ),
-              ],
-            )
-          : body,
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Mdi.email),
-        tooltip: 'Email',
-        onPressed: () async {
-          if (await canLaunch('mailto:tnc1997@virginmedia.com')) {
-            await launch('mailto:tnc1997@virginmedia.com');
-          }
-        },
-      ),
-      bottomNavigationBar: MediaQuery.of(context).isSmall
-          ? Builder(
-              builder: (context) {
-                final colorScheme = Theme.of(context).colorScheme;
-                final isDark = colorScheme.brightness == Brightness.dark;
-                final backgroundColor =
-                    isDark ? colorScheme.surface : colorScheme.primary;
-                final itemColor =
-                    isDark ? colorScheme.onSurface : colorScheme.onPrimary;
+              ),
+            ],
+          );
+        } else {
+          bottomNavigationBar = BottomNavigationBar(
+            items: [
+              BottomNavigationBarItem(
+                icon: Icon(Mdi.homeOutline),
+                label: 'Home',
+                activeIcon: Icon(Mdi.home),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Mdi.briefcaseOutline),
+                label: 'Experience',
+                activeIcon: Icon(Mdi.briefcase),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Mdi.schoolOutline),
+                label: 'Education',
+                activeIcon: Icon(Mdi.school),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Mdi.heartOutline),
+                label: 'Volunteering',
+                activeIcon: Icon(Mdi.heart),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Mdi.trophyOutline),
+                label: 'Achievements',
+                activeIcon: Icon(Mdi.trophy),
+              ),
+            ],
+            onTap: (value) {
+              RouterState.of(context)!.selectedIndex = value;
+            },
+            currentIndex: RouterState.of(context)!.selectedIndex,
+            type: BottomNavigationBarType.fixed,
+          );
+        }
 
-                return BottomNavigationBar(
-                  items: [
-                    BottomNavigationBarItem(
-                      icon: Icon(Mdi.homeOutline),
-                      label: 'Home',
-                      activeIcon: Icon(Mdi.home),
-                      backgroundColor: backgroundColor,
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Mdi.briefcaseOutline),
-                      label: 'Experience',
-                      activeIcon: Icon(Mdi.briefcase),
-                      backgroundColor: backgroundColor,
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Mdi.schoolOutline),
-                      label: 'Education',
-                      activeIcon: Icon(Mdi.school),
-                      backgroundColor: backgroundColor,
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Mdi.heartOutline),
-                      label: 'Volunteering',
-                      activeIcon: Icon(Mdi.heart),
-                      backgroundColor: backgroundColor,
-                    ),
-                    BottomNavigationBarItem(
-                      icon: Icon(Mdi.trophyOutline),
-                      label: 'Achievements',
-                      activeIcon: Icon(Mdi.trophy),
-                      backgroundColor: backgroundColor,
-                    ),
-                  ],
-                  onTap: (value) {
-                    setState(() {
-                      _index = value;
-                    });
-                  },
-                  currentIndex: _index!,
-                  selectedItemColor: itemColor,
-                  unselectedItemColor: itemColor,
-                );
-              },
-            )
-          : null,
+        return Scaffold(
+          body: SafeArea(
+            child: body,
+          ),
+          floatingActionButton: FloatingActionButton(
+            child: Icon(Mdi.email),
+            tooltip: 'Email',
+            onPressed: () async {
+              if (await canLaunch('mailto:tnc1997@virginmedia.com')) {
+                await launch('mailto:tnc1997@virginmedia.com');
+              }
+            },
+          ),
+          bottomNavigationBar: bottomNavigationBar,
+        );
+      },
     );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _index = 0;
   }
 }

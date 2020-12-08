@@ -1,6 +1,4 @@
 import 'package:flutter/widgets.dart';
-import 'package:thomas_clark/route_paths/main_route_path.dart';
-import 'package:thomas_clark/route_paths/route_path.dart';
 
 class RouterState extends InheritedNotifier<RouterStateData> {
   const RouterState({
@@ -19,27 +17,13 @@ class RouterState extends InheritedNotifier<RouterStateData> {
 }
 
 class RouterStateData extends ChangeNotifier {
-  RoutePath _path;
-  Object? _state;
+  int _selectedIndex = 0;
 
-  RouterStateData({
-    RoutePath path = const MainRoutePath(),
-  }) : _path = path;
+  int get selectedIndex => _selectedIndex;
 
-  RoutePath get path => _path;
-
-  set path(RoutePath value) {
-    if (value != _path) {
-      _path = value;
-      notifyListeners();
-    }
-  }
-
-  Object? get state => _state;
-
-  set state(Object? value) {
-    if (value != _state) {
-      _state = value;
+  set selectedIndex(int value) {
+    if (value != _selectedIndex) {
+      _selectedIndex = value;
       notifyListeners();
     }
   }
