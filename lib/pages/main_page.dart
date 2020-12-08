@@ -105,12 +105,12 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: MediaQuery.of(context).isSmall
           ? Builder(
               builder: (context) {
-                final colorScheme = Theme.of(context)?.colorScheme;
-                final isDark = colorScheme?.brightness == Brightness.dark;
+                final colorScheme = Theme.of(context).colorScheme;
+                final isDark = colorScheme.brightness == Brightness.dark;
                 final backgroundColor =
-                    isDark ? colorScheme?.surface : colorScheme?.primary;
+                    isDark ? colorScheme.surface : colorScheme.primary;
                 final itemColor =
-                    isDark ? colorScheme?.onSurface : colorScheme?.onPrimary;
+                    isDark ? colorScheme.onSurface : colorScheme.onPrimary;
 
                 return BottomNavigationBar(
                   items: [
