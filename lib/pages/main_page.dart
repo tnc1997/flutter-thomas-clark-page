@@ -35,28 +35,58 @@ class MainPage extends StatelessWidget {
                 extended: constraints.maxWidth >= 1024,
                 destinations: [
                   NavigationRailDestination(
-                    icon: Icon(Mdi.homeOutline),
-                    selectedIcon: Icon(Mdi.home),
+                    icon: Icon(
+                      Mdi.homeOutline,
+                      key: Key('home_outline_icon'),
+                    ),
+                    selectedIcon: Icon(
+                      Mdi.home,
+                      key: Key('home_icon'),
+                    ),
                     label: Text('Home'),
                   ),
                   NavigationRailDestination(
-                    icon: Icon(Mdi.briefcaseOutline),
-                    selectedIcon: Icon(Mdi.briefcase),
+                    icon: Icon(
+                      Mdi.briefcaseOutline,
+                      key: Key('briefcase_outline_icon'),
+                    ),
+                    selectedIcon: Icon(
+                      Mdi.briefcase,
+                      key: Key('briefcase_icon'),
+                    ),
                     label: Text('Experience'),
                   ),
                   NavigationRailDestination(
-                    icon: Icon(Mdi.schoolOutline),
-                    selectedIcon: Icon(Mdi.school),
+                    icon: Icon(
+                      Mdi.schoolOutline,
+                      key: Key('school_outline_icon'),
+                    ),
+                    selectedIcon: Icon(
+                      Mdi.school,
+                      key: Key('school_icon'),
+                    ),
                     label: Text('Education'),
                   ),
                   NavigationRailDestination(
-                    icon: Icon(Mdi.heartOutline),
-                    selectedIcon: Icon(Mdi.heart),
+                    icon: Icon(
+                      Mdi.heartOutline,
+                      key: Key('heart_outline_icon'),
+                    ),
+                    selectedIcon: Icon(
+                      Mdi.heart,
+                      key: Key('heart_icon'),
+                    ),
                     label: Text('Volunteering'),
                   ),
                   NavigationRailDestination(
-                    icon: Icon(Mdi.trophyOutline),
-                    selectedIcon: Icon(Mdi.trophy),
+                    icon: Icon(
+                      Mdi.trophyOutline,
+                      key: Key('trophy_outline_icon'),
+                    ),
+                    selectedIcon: Icon(
+                      Mdi.trophy,
+                      key: Key('trophy_icon'),
+                    ),
                     label: Text('Achievements'),
                   ),
                 ],
@@ -86,29 +116,59 @@ class MainPage extends StatelessWidget {
           bottomNavigationBar = BottomNavigationBar(
             items: [
               BottomNavigationBarItem(
-                icon: Icon(Mdi.homeOutline),
+                icon: Icon(
+                  Mdi.homeOutline,
+                  key: Key('home_outline_icon'),
+                ),
                 label: 'Home',
-                activeIcon: Icon(Mdi.home),
+                activeIcon: Icon(
+                  Mdi.home,
+                  key: Key('home_icon'),
+                ),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Mdi.briefcaseOutline),
+                icon: Icon(
+                  Mdi.briefcaseOutline,
+                  key: Key('briefcase_outline_icon'),
+                ),
                 label: 'Experience',
-                activeIcon: Icon(Mdi.briefcase),
+                activeIcon: Icon(
+                  Mdi.briefcase,
+                  key: Key('briefcase_icon'),
+                ),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Mdi.schoolOutline),
+                icon: Icon(
+                  Mdi.schoolOutline,
+                  key: Key('school_outline_icon'),
+                ),
                 label: 'Education',
-                activeIcon: Icon(Mdi.school),
+                activeIcon: Icon(
+                  Mdi.school,
+                  key: Key('school_icon'),
+                ),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Mdi.heartOutline),
+                icon: Icon(
+                  Mdi.heartOutline,
+                  key: Key('heart_outline_icon'),
+                ),
                 label: 'Volunteering',
-                activeIcon: Icon(Mdi.heart),
+                activeIcon: Icon(
+                  Mdi.heart,
+                  key: Key('heart_icon'),
+                ),
               ),
               BottomNavigationBarItem(
-                icon: Icon(Mdi.trophyOutline),
+                icon: Icon(
+                  Mdi.trophyOutline,
+                  key: Key('trophy_outline_icon'),
+                ),
                 label: 'Achievements',
-                activeIcon: Icon(Mdi.trophy),
+                activeIcon: Icon(
+                  Mdi.trophy,
+                  key: Key('trophy_icon'),
+                ),
               ),
             ],
             onTap: (value) {

@@ -15,10 +15,13 @@ jobs:
           mkdir ~/Tools && cd $_
           git clone https://github.com/flutter/flutter.git
           ~/Tools/flutter/bin/flutter doctor
+      - name: Launch web driver
+        run: |
+          chromedriver --port=4444
       - name: Test
         run: |
           ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter test --enable-experiment=non-nullable --no-sound-null-safety
+          ~/Tools/flutter/bin/flutter drive --browser-name=chrome --enable-experiment=non-nullable --no-sound-null-safety --release --target=test_driver/app.dart
   build_android:
     name: Build android
     runs-on: ubuntu-latest
