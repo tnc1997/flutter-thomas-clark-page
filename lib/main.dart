@@ -46,9 +46,9 @@ class _AppState extends State<App> {
             ),
             darkTheme: ThemeData.from(
               colorScheme: ColorScheme.dark(
-                primary: Colors.red[200]!,
+                primary: Colors.red,
                 primaryVariant: Colors.red[700]!,
-                secondary: Colors.red[200]!,
+                secondary: Colors.red,
                 secondaryVariant: Colors.red[700]!,
                 surface: Colors.grey[850]!,
                 background: Colors.grey[900]!,
