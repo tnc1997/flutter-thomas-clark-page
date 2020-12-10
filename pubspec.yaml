@@ -26,7 +26,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  mdi: ^4.0.0
+  mdi: ^5.0.0-nullsafety
   url_launcher: ^6.0.0-nullsafety
 
 dev_dependencies:

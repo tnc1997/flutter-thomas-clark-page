@@ -20,7 +20,7 @@ jobs:
           chromedriver --port=4444 &
           sleep 10
           ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter drive --browser-name=chrome --device-id=web-server --enable-experiment=non-nullable --no-sound-null-safety --release --target=test_driver/app.dart
+          ~/Tools/flutter/bin/flutter drive --browser-name=chrome --device-id=web-server --release --target=test_driver/app.dart
   build_android:
     name: Build android
     runs-on: ubuntu-latest
@@ -35,7 +35,7 @@ jobs:
       - name: Build android
         run: |
           ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter build apk --enable-experiment=non-nullable --no-sound-null-safety
+          ~/Tools/flutter/bin/flutter build apk
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -56,7 +56,7 @@ jobs:
       - name: Build web
         run: |
           ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter build web --enable-experiment=non-nullable --no-sound-null-safety
+          ~/Tools/flutter/bin/flutter build web
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -78,7 +78,7 @@ jobs:
       - name: Build windows
         run: |
           ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter build windows --enable-experiment=non-nullable --no-sound-null-safety
+          ~/Tools/flutter/bin/flutter build windows
         shell: bash
       - name: Upload artifact
         uses: actions/upload-artifact@v2
