@@ -35,58 +35,28 @@ class MainPage extends StatelessWidget {
                 extended: constraints.maxWidth >= 1024,
                 destinations: [
                   NavigationRailDestination(
-                    icon: Icon(
-                      Mdi.homeOutline,
-                      key: Key('home_outline_icon'),
-                    ),
-                    selectedIcon: Icon(
-                      Mdi.home,
-                      key: Key('home_icon'),
-                    ),
+                    icon: Icon(Mdi.homeOutline),
+                    selectedIcon: Icon(Mdi.home),
                     label: Text('Home'),
                   ),
                   NavigationRailDestination(
-                    icon: Icon(
-                      Mdi.briefcaseOutline,
-                      key: Key('briefcase_outline_icon'),
-                    ),
-                    selectedIcon: Icon(
-                      Mdi.briefcase,
-                      key: Key('briefcase_icon'),
-                    ),
+                    icon: Icon(Mdi.briefcaseOutline),
+                    selectedIcon: Icon(Mdi.briefcase),
                     label: Text('Experience'),
                   ),
                   NavigationRailDestination(
-                    icon: Icon(
-                      Mdi.schoolOutline,
-                      key: Key('school_outline_icon'),
-                    ),
-                    selectedIcon: Icon(
-                      Mdi.school,
-                      key: Key('school_icon'),
-                    ),
+                    icon: Icon(Mdi.schoolOutline),
+                    selectedIcon: Icon(Mdi.school),
                     label: Text('Education'),
                   ),
                   NavigationRailDestination(
-                    icon: Icon(
-                      Mdi.heartOutline,
-                      key: Key('heart_outline_icon'),
-                    ),
-                    selectedIcon: Icon(
-                      Mdi.heart,
-                      key: Key('heart_icon'),
-                    ),
+                    icon: Icon(Mdi.heartOutline),
+                    selectedIcon: Icon(Mdi.heart),
                     label: Text('Volunteering'),
                   ),
                   NavigationRailDestination(
-                    icon: Icon(
-                      Mdi.trophyOutline,
-                      key: Key('trophy_outline_icon'),
-                    ),
-                    selectedIcon: Icon(
-                      Mdi.trophy,
-                      key: Key('trophy_icon'),
-                    ),
+                    icon: Icon(Mdi.trophyOutline),
+                    selectedIcon: Icon(Mdi.trophy),
                     label: Text('Achievements'),
                   ),
                 ],
