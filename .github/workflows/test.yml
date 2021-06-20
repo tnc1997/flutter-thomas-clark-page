@@ -18,9 +18,6 @@ jobs:
         run: |
           chromedriver --port=4444 &
           sleep 10
-          flutter doctor
-          flutter upgrade
-          flutter packages get
           flutter drive --driver=test_driver/integration_test.dart --target=integration_test/app_test.dart -d web-server
   build_android:
     name: Build android
@@ -33,9 +30,7 @@ jobs:
         with:
           channel: dev
       - name: Build android
-        run: |
-          flutter packages get
-          flutter build apk
+        run: flutter build apk
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -52,9 +47,7 @@ jobs:
         with:
           channel: dev
       - name: Build web
-        run: |
-          flutter packages get
-          flutter build web
+        run: flutter build web
       - name: Deploy web
         uses: FirebaseExtended/action-hosting-deploy@v0
         env:
@@ -81,9 +74,7 @@ jobs:
       - name: Enable windows
         run: flutter config --enable-windows-desktop
       - name: Build windows
-        run: |
-          flutter packages get
-          flutter build windows
+        run: flutter build windows
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
