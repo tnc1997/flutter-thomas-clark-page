@@ -1,4 +1,4 @@
-name: Build
+name: Release
 on:
   push:
     tags:
@@ -27,14 +27,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Install flutter
-        run: |
-          mkdir ~/Tools && cd $_
-          git clone https://github.com/flutter/flutter.git
-          ~/Tools/flutter/bin/flutter doctor
+        uses: tnc1997/github-actions/actions/setup-flutter@setup-flutter_v1
+        with:
+          channel: dev
       - name: Build android
         run: |
-          ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter build apk
+          flutter packages get
+          flutter build apk
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -58,15 +57,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Install flutter
-        run: |
-          mkdir ~/Tools && cd $_
-          git clone https://github.com/flutter/flutter.git
-          ~/Tools/flutter/bin/flutter config --enable-web
-          ~/Tools/flutter/bin/flutter doctor
+        uses: tnc1997/github-actions/actions/setup-flutter@setup-flutter_v1
+        with:
+          channel: dev
       - name: Build web
         run: |
-          ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter build web
+          flutter packages get
+          flutter build web
+      - name: Deploy web
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        env:
+          FIREBASE_CLI_PREVIEWS: hostingchannels
+        with:
+          channelId: live
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_ACE_RESOLVER_317419 }}
+          projectId: ace-resolver-317419
+          repoToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -93,17 +99,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Install flutter
-        run: |
-          mkdir ~/Tools && cd $_
-          git clone https://github.com/flutter/flutter.git
-          ~/Tools/flutter/bin/flutter config --enable-windows-desktop
-          ~/Tools/flutter/bin/flutter doctor
-        shell: bash
+        uses: tnc1997/github-actions/actions/setup-flutter@setup-flutter_v1
+        with:
+          channel: dev
+      - name: Enable windows
+        run: flutter config --enable-windows-desktop
       - name: Build windows
         run: |
-          ~/Tools/flutter/bin/flutter packages get
-          ~/Tools/flutter/bin/flutter build windows
-        shell: bash
+          flutter packages get
+          flutter build windows
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
