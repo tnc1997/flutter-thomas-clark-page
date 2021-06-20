@@ -31,9 +31,7 @@ jobs:
         with:
           channel: dev
       - name: Build android
-        run: |
-          flutter packages get
-          flutter build apk
+        run: flutter build apk
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
@@ -61,9 +59,7 @@ jobs:
         with:
           channel: dev
       - name: Build web
-        run: |
-          flutter packages get
-          flutter build web
+        run: flutter build web
       - name: Deploy web
         uses: FirebaseExtended/action-hosting-deploy@v0
         env:
@@ -79,8 +75,7 @@ jobs:
           name: web
           path: build/web
       - name: Create archive
-        run: |
-          tar -cJf web.tar.xz build/web
+        run: tar -cJf web.tar.xz build/web
       - name: Upload release asset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -105,17 +100,14 @@ jobs:
       - name: Enable windows
         run: flutter config --enable-windows-desktop
       - name: Build windows
-        run: |
-          flutter packages get
-          flutter build windows
+        run: flutter build windows
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: windows
           path: build\windows\runner\Release
       - name: Create archive
-        run: |
-          Compress-Archive -DestinationPath Release.zip -Path build\windows\runner\Release
+        run: Compress-Archive -DestinationPath Release.zip -Path build\windows\runner\Release
       - name: Upload release asset
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
