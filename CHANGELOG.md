@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/tnc1997/thomas-clark/compare/v1.0.0...v1.0.1) (2021-06-21)
+
+
+### Continuous Integrations
+
+* refactor apk and remove appbundle ([#21](https://github.com/tnc1997/thomas-clark/issues/21)) ([2545d9d](https://github.com/tnc1997/thomas-clark/commit/2545d9d5eb658cfa056cca493881fb37e349bb55))
+
+
+### Code Refactoring
+
+* dark theme color scheme ([#22](https://github.com/tnc1997/thomas-clark/issues/22)) ([99a1114](https://github.com/tnc1997/thomas-clark/commit/99a1114d2d0bf54930f0da66cd2c0f076c33c0c2))
+* navigation to support urls ([#23](https://github.com/tnc1997/thomas-clark/issues/23)) ([59f94a8](https://github.com/tnc1997/thomas-clark/commit/59f94a80ab1df353d2867db8a13d75a400cbdee9))
+
+
+### Builds
+
+* configure firebase hosting ([#25](https://github.com/tnc1997/thomas-clark/issues/25)) ([d085665](https://github.com/tnc1997/thomas-clark/commit/d0856651ade0603e1c36993548b9511b8ae2bda4))
+* upgrade dependencies ([#20](https://github.com/tnc1997/thomas-clark/issues/20)) ([25c558b](https://github.com/tnc1997/thomas-clark/commit/25c558b21c444047cc778c8c639c1fb3c97c02ed))
+* upgrade dependencies ([#24](https://github.com/tnc1997/thomas-clark/issues/24)) ([8fcaa88](https://github.com/tnc1997/thomas-clark/commit/8fcaa888f6c7bc61e946aba7774e74417484e8a5))
+
 ## 1.0.0 (2020-11-01)
 
 
