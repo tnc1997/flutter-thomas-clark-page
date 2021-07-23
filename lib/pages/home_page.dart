@@ -18,12 +18,12 @@ class HomePage extends StatelessWidget {
           AppCard(
             title: 'Welcome',
             content:
-                'My name is Thomas Clark and I am a developer specialising in a range of frontend and backend technologies.',
+                'My name is Thomas Clark and I am a developer specialising in a range of front-end and back-end technologies.',
           ),
           AppCard(
             title: 'About',
             content:
-                'Having graduated from the University of Gloucestershire with a first class degree with honours in computing, I am currently working at apetito UK as a developer. I enjoy both web app and mobile app development and I have created a number of professional websites for clients in the past. I have strong practical experience using a variety of languages and frameworks including .NET, Angular and Flutter.',
+                'Having graduated from the University of Gloucestershire with a first class degree in computing, I am currently working at apetito as a developer. I enjoy both front-end and back-end development and I have created and deployed multiple applications as part of a team. I have strong practical experience using a variety of frameworks and technologies including Angular, ASP.NET Core, Docker, Flutter, Microsoft Azure and Terraform.',
           ),
         ],
       ),

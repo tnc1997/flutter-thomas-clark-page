@@ -16,22 +16,22 @@ class ExperiencePage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           AppCard(
-            title: 'Developer at apetito UK',
-            subtitle: 'August 2019 - To Date',
+            title: 'Developer at apetito',
+            subtitle: '2019 - To Date',
             content:
-                'After graduating from University, I returned to apetito UK as part of their graduate programme to continue working as a developer where I orchestrated their migration to microservices.',
+                'After graduating, I returned as part of their graduate scheme where I orchestrated their migration to microservices using ASP.NET Core and Docker. This was something that I owned from start to finish and continue to improve upon. It also included the creation of a developer portal for our third-party integrators, who I work closely with during onboarding to ensure that they have the best possible experience.',
           ),
           AppCard(
-            title: 'Developer at apetito UK',
-            subtitle: 'June 2017 - July 2018',
+            title: 'Developer at apetito',
+            subtitle: '2017 - 2018',
             content:
-                'During my time at University, I completed a placement year at apetito UK where I spent the majority of the year working as a developer on web apps and mobile apps using Angular and Ionic.',
+                'During my time at University, I completed a placement year where I worked as a developer primarily on their Business-to-Business (B2B) web and mobile apps using Angular and Ionic. It was during this placement year that I redeveloped the flagship ordering system’s admin portal.',
           ),
           AppCard(
             title: 'Garden Centre Assistant at Wyevale Garden Centres',
-            subtitle: 'August 2013 - September 2015',
+            subtitle: '2013 - 2015',
             content:
-                'My duties included operating the tills, watering both the indoor houseplants and outdoor plants, creating outdoor displays, keeping the outdoor areas clean and assisting customers with heavy loads.',
+                'My duties included operating the tills, watering the indoor houseplants and outdoor plants and assisting customers with heavy loads.',
           ),
         ],
       ),
