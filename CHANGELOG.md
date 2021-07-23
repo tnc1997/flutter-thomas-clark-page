@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.2](https://github.com/tnc1997/thomas-clark/compare/v1.0.1...v1.0.2) (2021-07-23)
+
+
+### Builds
+
+* upgrade dependencies ([#26](https://github.com/tnc1997/thomas-clark/issues/26)) ([89fe50c](https://github.com/tnc1997/thomas-clark/commit/89fe50c007ea4ee0b03bb747137bc7c2c354a61c))
+
+
+### Chores
+
+* align with curriculum vitae ([#27](https://github.com/tnc1997/thomas-clark/issues/27)) ([252b0ca](https://github.com/tnc1997/thomas-clark/commit/252b0ca5e61a307bf32e17ab708dea68fb848c62))
+
 ### [1.0.1](https://github.com/tnc1997/thomas-clark/compare/v1.0.0...v1.0.1) (2021-06-21)
 
 
